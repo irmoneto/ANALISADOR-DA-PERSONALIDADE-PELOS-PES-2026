@@ -1,0 +1,6 @@
+{
+  "name": "Analisador da Personalidade pelos Pés",
+  "description": "Análise profunda da personalidade pelo formato dos pés, proporção dos dedos, calos e sinais reflexológicos por Irmo Zuccato Neto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
