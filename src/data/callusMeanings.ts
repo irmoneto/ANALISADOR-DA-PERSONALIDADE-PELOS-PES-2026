@@ -20,70 +20,70 @@ export const TOE_CALLUS_DATA: Record<ToeKey, ToeCallusInfo> = {
     name: 'Dedão',
     subname: 'Hálux / 1º Dedo',
     rightFoot: {
-      theme: 'Expressão no Mundo & Sobrecarga de Responsabilidade',
-      description: 'O calo no dedão direito aponta atrito na comunicação com o mundo exterior. Indica uma forte tendência a reprimir ideias por medo de não ser compreendido, ou um esforço exaustivo em ter que justificar suas decisões a terceiros e carregar o peso do mundo nas costas.',
-      reflection: 'Você não precisa provar nada a ninguém o tempo todo. Aprenda a soltar a necessidade de convencer quem não quer escutar.'
+      theme: 'O Raio-X Incômodo da Sua Necessidade de Justificar a Própria Existência',
+      description: 'O calo no dedão direito é o monumento que você ergueu à sua exaustiva compulsão de traduzir o universo em palavras e debater com quem não passa de mero espectador da própria vida. Indica o atrito constante de quem passa os dias tentando convencer o rebanho de suas próprias decisões, como se o mundo precisasse carimbar um alvará para a sua liberdade.',
+      reflection: 'Querido intelectual da tribo, você não precisa prestar contas ao cosmos inteiro antes de dar um passo. Que tal parar de gastar a saliva tentando convencer quem tem a profundidade de um pires?'
     },
     leftFoot: {
-      theme: 'Expressão Íntima & Tristeza Silenciada',
-      description: 'O calo no dedão esquerdo sinaliza mágoas engolidas e sentimentos profundos que foram calados para não criar atrito na família ou com quem você ama. Representa uma tristeza retida na expressão dos seus sentimentos mais genuínos.',
-      reflection: 'Calar o que você sente para manter a paz ao redor só transfere a guerra para dentro de si.'
+      theme: 'O Cativeiro Silencioso das Suas Mágoas Polidas',
+      description: 'O calo no dedão esquerdo expõe a arte masoquista de engolir sapos em família para manter uma paz de fachada que só existe na sua imaginação. É o depósito de tristezas mudas e sentimentos legítimos que você estrangulou no ninho para não correr o risco de parecer inconveniente.',
+      reflection: 'Abafar o próprio grito para não perturbar o sono dos outros é apenas uma forma elegante de suicídio emocional. A guerra que você esconde embaixo do tapete familiar continua comendo seus tecidos por dentro.'
     }
   },
   segundo: {
     name: 'Segundo Dedo',
     subname: 'Desejo / 2º Dedo',
     rightFoot: {
-      theme: 'Ambição Bloqueada & Pressão por Resultados',
-      description: 'No pé direito, o calo no segundo dedo revela frustração e tensão diante de metas e projetos profissionais. Há uma sensação constante de que as coisas demoram mais do que deveriam ou de estar sendo contido pelas circunstâncias materiais.',
-      reflection: 'A pressa em colher os frutos pode estar endurecendo sua caminhada. Respeite os ciclos naturais das suas conquistas.'
+      theme: 'A Corrida dos Ratos com Diploma de Sofisticação',
+      description: 'No pé direito, o calo no segundo dedo revela a frustração crônica de quem transformou metas profissionais em uma obsessão cirúrgica. É a marca indelével da sua impaciência com a lentidão cósmica dos fatos e a irritação profunda por perceber que a matéria nem sempre se dobra à sua vontade tirânica.',
+      reflection: 'Sua pressa em colher os frutos antes da estação não vai acelerar o relógio biológico do mundo. Só serve para esfolar os pés enquanto você tropeça na própria ansiedade.'
     },
     leftFoot: {
-      theme: 'Desejos Afetivos Reprimidos & Abnegação',
-      description: 'No pé esquerdo, o calo no segundo dedo indica anulação das próprias vontades afetivas em prol dos desejos alheios. Mostra alguém que teme pedir o que realmente precisa por receio de ser visto como exigente ou carente.',
-      reflection: 'Seus anseios e necessidades emocionais têm valor sagrado; não se coloque sempre no final da fila.'
+      theme: 'O Nobre Mártir do Sacrifício Afetivo',
+      description: 'No pé esquerdo, o calo no segundo dedo é o recibo da sua abnegação compulsiva — aquela mania graciosa de se colocar no fim da fila para posar de salvador da pátria afetiva. Você anula os próprios anseios com um sorriso no rosto, esperando secretamente que alguém venha lhe dar uma medalha de ouro pelo martírio voluntário.',
+      reflection: 'Seus desejos mais íntimos não são pecados capitais; são partes sagradas da sua biografia que você assassinou no altar da conveniência alheia. Assuma o egoísmo de existir.'
     }
   },
   terceiro: {
     name: 'Terceiro Dedo',
     subname: 'Ação / 3º Dedo',
     rightFoot: {
-      theme: 'Sobrecarga de Ação & Impaciência no Trabalho',
-      description: 'O calo no terceiro dedo direito surge quando a pessoa sente que está "remando contra a maré" em suas atividades diárias. Expressa raiva contida no ambiente de trabalho ou social, cobrança excessiva por produtividade e cansaço por ter que fazer tudo sozinho.',
-      reflection: 'Nem toda batalha precisa ser travada na força bruta. Permita-se delegar e desacelerar o ritmo de cobrança.'
+      theme: 'O Monopólio da Insatisfação e o Complexo de Atlas',
+      description: 'O calo no terceiro dedo direito brota esplendoroso onde a sua impaciência no trabalho colide com a incompetência alheia. É a marca do general solitário que prefere fazer tudo sozinho a ver alguém estragar o seu plano milimétrico, acumulando uma raiva silenciosa contra a inércia do mundo.',
+      reflection: 'Ninguém pediu para você carregar o planeta nas costas, meu caro salvador. O peso que esmaga seus pés é apenas o monumento à sua soberba de achar que o universo para sem o seu aval.'
     },
     leftFoot: {
-      theme: 'Autocrítica Corrosiva & Conflito Interno ao Agir',
-      description: 'O calo no terceiro dedo esquerdo reflete culpa inconsciente ao agir em benefício próprio. Aponta uma forte censura interna que paralisa a ação criativa e gera atrito entre o que o coração quer e o que a mente julga correto.',
-      reflection: 'Agir pelo seu próprio bem não é egoísmo, é autopreservação. Seja mais tolerante com suas próprias escolhas.'
+      theme: 'O Tribunal Inquisitório do Próprio Umbigo',
+      description: 'O calo no terceiro dedo esquerdo reflete o tribunal sádico que você instalou na própria mente: cada vez que o seu coração ousa desejar algo em benefício próprio, o seu fiscal interno aplica uma condenação sumária por culpa e egoísmo.',
+      reflection: 'Atuar em benefício do próprio ser não é crime hediondo, é mera lei de gravidade psíquica. Tente ser um pouco menos carrasco de si mesmo e um pouco mais humano.'
     }
   },
   quarto: {
     name: 'Quarto Dedo',
     subname: 'Relacionamento / 4º Dedo',
     rightFoot: {
-      theme: 'Atrito nas Relações Sociais & Exigência Afetiva Externa',
-      description: 'O calo no quarto dedo direito revela atritos e decepções em amizades, parcerias profissionais ou redes sociais. Sinaliza uma expectativa elevada sobre os outros e a sensação frequente de doação desmedida sem o devido reconhecimento.',
-      reflection: 'Ajuste a régua das suas expectativas para que o comportamento alheio pare de machucar você.'
+      theme: 'A Régua Injusta e a Fábrica de Desilusões Sociais',
+      description: 'O calo no quarto dedo direito é o selo de garantia das suas expectativas estelares em relação aos reles mortais que o cercam. Você distribui generosidade com recibo de cobrança e depois passa os dias em pranto existencial porque o mundo falhou em adivinhar a sua grandeza.',
+      reflection: 'Ajuste essa régua imaginária antes que a realidade termine de esmagar seus dedos. As pessoas não são falhas; elas apenas se recusam a viver no roteiro irreal que você escreveu para elas.'
     },
     leftFoot: {
-      theme: 'Apego a Mágoas & Dificuldade em Soltar o Passado',
-      description: 'O calo no quarto dedo esquerdo é uma das marcas mais claras de feridas afetivas íntimas e ressentimentos guardados. Indica medo de se entregar a novos laços emocionais por receio de reviver dores do passado e um apego nostálgico que ainda pesa.',
-      reflection: 'Perdoar não significa concordar com o erro alheio, mas sim tirar o peso da mágoa dos seus próprios passos.'
+      theme: 'O Museu Arqueológico de Ressentimentos Afetivos',
+      description: 'O calo no quarto dedo esquerdo é a prova física de que você embalsamou seus traumas antigos e construiu um altar de ouro para as suas mágoas mais íntimas. Você prefere a segurança melancólica do passado à vertigem aterrorizante de entregar o coração a um novo começo.',
+      reflection: 'Perdoar a história não é absolver o agressor; é simplesmente ter a decência de tirar o lixo da própria sala de estar e parar de tropeçar no próprio luto.'
     }
   },
   dedinho: {
     name: 'Dedinho',
     subname: 'Segurança / 5º Dedo',
     rightFoot: {
-      theme: 'Insegurança Material & Medo do Futuro',
-      description: 'O calo no dedinho direito expressa tensão crônica com dinheiro, estabilidade financeira e o rumo prático da vida. Mostra uma sensação latente de vulnerabilidade e medo de perder o chão ou os recursos necessários para o amanhã.',
-      reflection: 'A ansiedade pelo amanhã não previne problemas futuros, apenas rouba a estabilidade e a clareza do seu presente.'
+      theme: 'O Pânico Financeiro e a Paranoia do Amanhã',
+      description: 'O calo no dedinho direito é a placa de neon que ilumina o seu pavor crônico de ver a conta bancária no vermelho e o futuro desabar sobre a sua cabeça. É a somatização exata de quem gasta a energia vital do presente antecipando desastres que, na esmagadora maioria das vezes, só existem na sua planilha de terrores.',
+      reflection: 'Sua ansiedade obsessiva pelo amanhã não vai impedir nenhuma tempestade cósmica; ela apenas garante que você destrua a estabilidade e a clareza do seu solo atual com as próprias mãos.'
     },
     leftFoot: {
-      theme: 'Insegurança Íntima & Medo da Solidão',
-      description: 'O calo no dedinho esquerdo aponta insegurança emocional básica e desconfiança instintiva. Revela o temor de ficar desamparado(a) afetivamente ou a crença enraizada de que, no fundo, você só pode contar consigo mesmo(a).',
-      reflection: 'Fortaleça a sua segurança interna: o seu verdadeiro porto seguro sempre reside dentro de você.'
+      theme: 'A Solitária Fortaleza do Cão de Guarda da Alma',
+      description: 'O calo no dedinho esquerdo denuncia a desconfiança instintiva de quem foi moldado na crença implacável de que, se quiser ver algo feito direito — ou sobreviver —, terá de fazê-lo inteiramente sozinho, trancado na torre de vigia do próprio isolamento.',
+      reflection: 'Construir muralhas de ferro ao redor do coração para se proteger da solidão é uma genialidade estratégica... pena que o único prisioneiro trancado nessa masmorra seja exatamente você.'
     }
   }
 };

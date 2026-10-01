@@ -32,10 +32,24 @@ export interface FootCalluses {
   dedinho: boolean;
 }
 
+export interface FootClawToes {
+  dedao: boolean;
+  segundo: boolean;
+  terceiro: boolean;
+  quarto: boolean;
+  dedinho: boolean;
+}
+
 export interface CallusesState {
   hasCalluses: 'Sim' | 'Não' | '';
   rightFoot: FootCalluses;
   leftFoot: FootCalluses;
+}
+
+export interface ClawToesState {
+  hasClawToes: 'Sim' | 'Não' | '';
+  rightFoot: FootClawToes;
+  leftFoot: FootClawToes;
 }
 
 export interface PersonalAnswers {
@@ -45,6 +59,7 @@ export interface PersonalAnswers {
   q2_relation: 'Desconfortável' | 'Neutro' | 'Confortável' | 'Muito Confortável';
   q3_joanetes: JoanetesState;
   calluses: CallusesState;
+  clawToes: ClawToesState;
 }
 
 export interface ShapeResult {

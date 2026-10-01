@@ -6,11 +6,13 @@ import {
   RatioResult,
   PersonalAnswers,
   CallusesState,
+  ClawToesState,
 } from './types';
 import { JoanetesState } from './data/joanetesMeanings';
 import { IngrownNailsState } from './data/ingrownNailMeanings';
 import { JoanetesSelector } from './components/JoanetesSelector';
 import { CallusSelector } from './components/CallusSelector';
+import { ClawToeSelector } from './components/ClawToeSelector';
 import { IngrownNailSelector } from './components/IngrownNailSelector';
 import { QuestionHelpTooltip } from './components/QuestionHelpTooltip';
 import { FootMeasurementCanvas } from './components/FootMeasurementCanvas';
@@ -90,6 +92,24 @@ const INITIAL_CALLUSES: CallusesState = {
   },
 };
 
+const INITIAL_CLAW_TOES: ClawToesState = {
+  hasClawToes: '',
+  rightFoot: {
+    dedao: false,
+    segundo: false,
+    terceiro: false,
+    quarto: false,
+    dedinho: false,
+  },
+  leftFoot: {
+    dedao: false,
+    segundo: false,
+    terceiro: false,
+    quarto: false,
+    dedinho: false,
+  },
+};
+
 const INITIAL_ANSWERS: PersonalAnswers = {
   unhas: 'visiveis',
   q1_tickles: 'Não',
@@ -97,7 +117,86 @@ const INITIAL_ANSWERS: PersonalAnswers = {
   q2_relation: 'Confortável',
   q3_joanetes: INITIAL_JOANETES,
   calluses: INITIAL_CALLUSES,
+  clawToes: INITIAL_CLAW_TOES,
 };
+
+const DEFAULT_SHAPE_RESULT: ShapeResult = {
+  type: 'Egípcio',
+  emoji: '🌟',
+  reasoning: 'Formato padrão baseado na dominância do hálux com declínio progressivo.',
+  l1: 100,
+  l2: 90,
+  l3: 80,
+  l5: 60,
+};
+
+const DEFAULT_RATIO_RESULT: RatioResult = {
+  calculatedRatio: 2.3,
+  toeLength: 50,
+  footLength: 115,
+  classification: 'Normais',
+  classificationKey: 'Normais',
+  colorClass: 'text-amber-600',
+  progressPercent: 95,
+};
+
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+  onReset: () => void;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: Error;
+}
+
+class ReportErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, info: any) {
+    console.error('Report error caught:', error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-red-200 text-center max-w-lg mx-auto my-8">
+          <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3 text-red-600">
+            <AlertCircle className="w-6 h-6" />
+          </div>
+          <h3 className="text-lg font-bold text-slate-900 mb-2">Ops! Houve uma instabilidade ao gerar o relatório.</h3>
+          <p className="text-xs text-slate-500 mb-4">
+            Não se preocupe, seus dados estão preservados. Clique abaixo para tentar novamente ou realizar uma nova análise.
+          </p>
+          <div className="flex gap-3 justify-center">
+            <button
+              type="button"
+              onClick={() => this.setState({ hasError: false })}
+              className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-bold cursor-pointer transition-all"
+            >
+              Recarregar Relatório
+            </button>
+            <button
+              type="button"
+              onClick={this.props.onReset}
+              className="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl text-xs font-bold cursor-pointer transition-all"
+            >
+              Reiniciar Análise
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 export default function App() {
   const [step, setStep] = useState<Step>('splash');
@@ -323,16 +422,20 @@ export default function App() {
   };
 
   const handleFinalReportGenerate = () => {
-    if (!answers.ingrownNails.hasIngrownNails) {
+    if (!answers.ingrownNails?.hasIngrownNails) {
       setQuestionsError('Por favor, responda se possui unhas encravadas.');
       return;
     }
-    if (!answers.q3_joanetes.hasJoanetes) {
+    if (!answers.q3_joanetes?.hasJoanetes) {
       setQuestionsError('Por favor, responda se possui joanetes.');
       return;
     }
-    if (!answers.calluses.hasCalluses) {
+    if (!answers.calluses?.hasCalluses) {
       setQuestionsError('Por favor, responda se possui calos nos dedos.');
+      return;
+    }
+    if (!answers.clawToes?.hasClawToes) {
+      setQuestionsError('Por favor, responda se possui dedos em forma de garra (virados para baixo).');
       return;
     }
     setQuestionsError('');
@@ -341,7 +444,7 @@ export default function App() {
       setIsGeneratingReport(false);
       setStep('report');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1200);
+    }, 500);
   };
 
   const handleFullRestart = () => {
@@ -1271,6 +1374,8 @@ export default function App() {
                           calluses: {
                             ...prev.calluses,
                             hasCalluses: opt,
+                            rightFoot: opt === 'Não' ? INITIAL_CALLUSES.rightFoot : prev.calluses.rightFoot,
+                            leftFoot: opt === 'Não' ? INITIAL_CALLUSES.leftFoot : prev.calluses.leftFoot,
                           },
                         }));
                       }}
@@ -1294,6 +1399,66 @@ export default function App() {
                         setAnswers((prev) => ({
                           ...prev,
                           calluses: updated,
+                        }));
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Pergunta 6: Dedos em Garra (Virados para Baixo) */}
+              <div className="bg-slate-50/80 rounded-2xl p-5 sm:p-6 border-2 border-purple-200/80 shadow-xs transition-colors hover:border-purple-300">
+                <div className="flex items-center justify-between mb-3 gap-2">
+                  <div className="flex items-center gap-3">
+                    <span className="w-7 h-7 rounded-full bg-purple-600 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                      6
+                    </span>
+                    <label className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                      Você tem dedos em forma de garra (virados para baixo)?
+                    </label>
+                  </div>
+                  <QuestionHelpTooltip
+                    title="Pergunta 6: Dedos em Forma de Garra (Virados para Baixo)"
+                    explanation="Na leitura somática e comportamental pelos pés, o dedo em garra (curvado para baixo, cravado no chão) indica um padrão ancestral ou adaptativo de apego, medo de perder a sustentação e necessidade excessiva de controle. O dedo específico aponta a área em que a pessoa teme a instabilidade e se agarra desesperadamente ao controle."
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  {(['Sim', 'Não'] as const).map((opt) => (
+                    <button
+                      type="button"
+                      key={opt}
+                      onClick={() => {
+                        setAnswers((prev) => ({
+                          ...prev,
+                          clawToes: {
+                            ...prev.clawToes,
+                            hasClawToes: opt,
+                            rightFoot: opt === 'Não' ? INITIAL_CLAW_TOES.rightFoot : prev.clawToes.rightFoot,
+                            leftFoot: opt === 'Não' ? INITIAL_CLAW_TOES.leftFoot : prev.clawToes.leftFoot,
+                          },
+                        }));
+                      }}
+                      className={`p-3 rounded-xl border font-semibold text-sm transition-all cursor-pointer text-center ${
+                        answers.clawToes.hasClawToes === opt
+                          ? 'bg-purple-600 border-purple-600 text-white shadow-sm'
+                          : 'bg-white border-slate-200 text-slate-700 hover:border-purple-300 hover:bg-purple-50/30'
+                      }`}
+                    >
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Se a pessoa responder SIM: CAMPO ABAIXO COM DUAS COLUNAS: PÉ DIREITO E PÉ ESQUERDO */}
+                {answers.clawToes.hasClawToes === 'Sim' && (
+                  <div className="animate-fade-in">
+                    <ClawToeSelector
+                      value={answers.clawToes}
+                      onChange={(updated) => {
+                        setAnswers((prev) => ({
+                          ...prev,
+                          clawToes: updated,
                         }));
                       }}
                     />
@@ -1341,15 +1506,17 @@ export default function App() {
         )}
 
         {/* STEP 13: FINAL REPORT VIEW */}
-        {step === 'report' && shapeResult && ratioResult && (
-          <ReportView
-            targetName={targetName}
-            imageUrl={imageUrl}
-            shapeResult={shapeResult}
-            ratioResult={ratioResult}
-            personalAnswers={answers}
-            onRestart={handleFullRestart}
-          />
+        {step === 'report' && (
+          <ReportErrorBoundary onReset={handleFullRestart}>
+            <ReportView
+              targetName={targetName}
+              imageUrl={imageUrl}
+              shapeResult={shapeResult || DEFAULT_SHAPE_RESULT}
+              ratioResult={ratioResult || DEFAULT_RATIO_RESULT}
+              personalAnswers={answers}
+              onRestart={handleFullRestart}
+            />
+          </ReportErrorBoundary>
         )}
 
         {/* STEP 14: LEGAL DOCUMENTS */}
